@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>Abduraximov Oybek — Backend Developer</title>
+<style>
+:root{--bg:#050a07;--bg2:#0b140e;--card:#0d1a12;--tx:#e8fff0;--mu:#8fb09c;--ac:#22e07a;--ac2:#0f9d58;--bd:#1c3326;--glow:rgba(34,224,122,.25);color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#fff;--bg2:#f1f6ff;--card:#fff;--tx:#0b1b3a;--mu:#55688a;--ac:#2563eb;--ac2:#1d4ed8;--bd:#d6e2fb;--glow:rgba(37,99,235,.2);color-scheme:light}}
+:root[data-theme="light"]{--bg:#fff;--bg2:#f1f6ff;--card:#fff;--tx:#0b1b3a;--mu:#55688a;--ac:#2563eb;--ac2:#1d4ed8;--bd:#d6e2fb;--glow:rgba(37,99,235,.2);color-scheme:light}
+:root[data-theme="dark"]{--bg:#050a07;--bg2:#0b140e;--card:#0d1a12;--tx:#e8fff0;--mu:#8fb09c;--ac:#22e07a;--ac2:#0f9d58;--bd:#1c3326;--glow:rgba(34,224,122,.25);color-scheme:dark}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.6}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:30}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--bd)}
+.bar{max-width:1100px;margin:auto;display:flex;align-items:center;gap:12px;padding:10px 16px;flex-wrap:wrap}
+.logo{font-weight:800;color:var(--ac);letter-spacing:1px;margin-right:auto}
+nav{display:flex;gap:4px;flex-wrap:wrap}
+nav button,.ctl button{background:none;border:1px solid transparent;color:var(--mu);padding:7px 12px;border-radius:8px;cursor:pointer;font:inherit;font-size:14px}
+nav button:hover,nav button.on{color:var(--ac);border-color:var(--bd);background:var(--bg2)}
+.ctl{display:flex;gap:6px;align-items:center}
+.ctl button{border-color:var(--bd)}.ctl button.on{background:var(--ac);color:var(--bg);border-color:var(--ac)}
+main{max-width:1100px;margin:auto;padding:32px 16px 60px}
+section{display:none;animation:f .4s}section.on{display:block}
+@keyframes f{from{opacity:0;transform:translateY(8px)}to{opacity:1}}
+.hero{display:grid;grid-template-columns:1.2fr 1fr;gap:32px;align-items:center;min-height:60vh}
+.tag{color:var(--ac);font-family:ui-monospace,Consolas,monospace;font-size:14px}
+h1{font-size:clamp(34px,6vw,64px);line-height:1.05;margin:8px 0;font-weight:900}
+h1 span{color:var(--ac);text-shadow:0 0 30px var(--glow)}
+h2{font-size:28px;margin:0 0 20px}h2::after{content:"";display:block;width:50px;height:3px;background:var(--ac);margin-top:8px;border-radius:2px}
+p{color:var(--mu)}
+.btn{display:inline-block;background:var(--ac);color:var(--bg);padding:11px 22px;border-radius:10px;font-weight:700;border:0;cursor:pointer;font:inherit;font-weight:700;text-decoration:none;box-shadow:0 0 24px var(--glow)}
+.btn.o{background:none;color:var(--ac);border:1px solid var(--ac);box-shadow:none;margin-left:8px}
+.term{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:18px;font-family:ui-monospace,Consolas,monospace;font-size:13px;box-shadow:0 0 40px var(--glow);overflow-x:auto}
+.term i{color:var(--ac);font-style:normal}.term b{color:var(--mu);font-weight:400}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:20px}
+.st{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:18px;text-align:center}
+.st strong{display:block;font-size:38px;color:var(--ac)}.st small{color:var(--mu)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:18px;transition:.2s}
+.card:hover{border-color:var(--ac);box-shadow:0 0 24px var(--glow);transform:translateY(-3px)}
+.card h3{margin:0 0 6px}.card a{color:var(--ac);font-weight:600;text-decoration:none}
+.chips{display:flex;flex-wrap:wrap;gap:8px}.chips span{border:1px solid var(--bd);background:var(--bg2);color:var(--ac);padding:6px 14px;border-radius:99px;font-size:14px}
+.empty{color:var(--mu);border:1px dashed var(--bd);border-radius:14px;padding:24px;text-align:center}
+.tl{border-left:2px solid var(--bd);padding-left:18px;margin:0 0 20px}.tl h3{margin:0}.tl small{color:var(--ac)}
+input,select,textarea{width:100%;background:var(--bg2);border:1px solid var(--bd);color:var(--tx);padding:10px;border-radius:8px;font:inherit;margin-bottom:10px}
+.row{display:flex;gap:10px;align-items:center;justify-content:space-between;border-bottom:1px solid var(--bd);padding:8px 0}
+.del{background:none;border:1px solid #e5484d;color:#e5484d;border-radius:6px;padding:4px 10px;cursor:pointer}
+footer{text-align:center;color:var(--mu);padding:20px;border-top:1px solid var(--bd);font-size:14px}
+@media(max-width:760px){.hero{grid-template-columns:1fr;min-height:0}}
+</style>
+</head>
+<body>
+<header><div class="bar">
+<div class="logo">&lt;OA/&gt;</div>
+<nav id="nav"></nav>
+<div class="ctl"><button data-l="uz">UZ</button><button data-l="ru">RU</button><button data-l="en">EN</button><button id="th" aria-label="theme">◐</button></div>
+</div></header>
+<main>
+<section id="home">
+ <div class="hero"><div>
+  <div class="tag" data-i="hi"></div>
+  <h1>ABDURAXIMOV<br><span>OYBEK</span></h1>
+  <p data-i="role" style="font-size:18px"></p>
+  <a class="btn" href="javascript:go('sites')" data-i="viewWork"></a><a class="btn o" href="javascript:go('contact')" data-i="contactMe"></a>
+ </div>
+ <div class="term"><b>$</b> <i>whoami</i><br>oybek.abduraximov<br><b>$</b> <i>stack</i><br>python · html · css · js<br><b>$</b> <i>status</i><br><span data-i="status"></span><br><b>$</b> <i>_</i></div></div>
+ <div class="stats"><div class="st"><strong id="nb">0</strong><small data-i="bots"></small></div><div class="st"><strong id="ns">0</strong><small data-i="sites"></small></div><div class="st"><strong>1</strong><small data-i="learn"></small></div></div>
+</section>
+<section id="about"><h2 data-i="about"></h2><p data-i="aboutTxt" style="font-size:17px;max-width:720px"></p><p data-i="aboutTxt2" style="font-size:17px;max-width:720px;margin-top:36px"></p><div class="chips" id="skills"></div></section>
+<section id="resume"><h2 data-i="resume"></h2>
+ <div class="tl"><small>2024 — ...</small><h3 data-i="edu"></h3><p data-i="eduTxt"></p></div>
+ <div class="tl"><small>2023 — ...</small><h3 data-i="exp"></h3><p data-i="expTxt"></p></div></section>
+<section id="bots"><h2 data-i="bots"></h2><div class="grid" id="gbots"></div></section>
+<section id="sites"><h2 data-i="sites"></h2><div class="grid" id="gsites"></div></section>
+<section id="contact"><h2 data-i="contact"></h2><div class="grid">
+ <div class="card"><h3>Tel</h3><a href="tel:+998936382585">+998 93 638 25 85</a></div>
+ <div class="card"><h3>Email</h3><a href="mailto:aoybek014@gmail.com">aoybek014@gmail.com</a></div>
+ <div class="card"><h3>GitHub</h3><a href="https://github.com/AbduraximovOybek" target="_blank" rel="noopener">github.com/AbduraximovOybek</a></div>
+ </div></section>
+<section id="admin"><h2>Admin</h2>
+ <div class="card" style="margin-bottom:20px"><select id="ft"><option value="bot">Bot</option><option value="site">Sayt / Сайт / Site</option></select>
+ <input id="fti" placeholder="Nomi / Название / Title"><textarea id="fd" rows="2" placeholder="Tavsif / Описание / Description"></textarea><input id="fu" placeholder="https://..."><button class="btn" id="add">+ Qo‘shish / Add</button></div>
+ <div id="alist"></div></section>
+</main>
+<footer>© 2026 Abduraximov Oybek Dilmurod o‘g‘li</footer>
+<script>
+const T={uz:{home:"Bosh sahifa",about:"Men haqimda",resume:"Rezyume",bots:"Botlar",sites:"Saytlar",contact:"Aloqa",hi:"// Salom, men",role:"Python, HTML, CSS va JavaScript yordamida zamonaviy botlar va saytlar yarataman.",viewWork:"Ishlarim",contactMe:"Bog‘lanish",status:"o‘rganmoqda va yaratmoqda…",learn:"Yil tajriba",aboutTxt:"Men Abduraximov Oybek Dilmurod o‘g‘liman. Backend yo‘nalishida o‘qiyman va Python, HTML, CSS, JavaScript yordamida zamonaviy botlar hamda “My site” turidagi saytlar yarataman.",aboutTxt2:"Dasturlashni o‘z qiziqishim bilan boshlaganman va har kuni yangi narsalar o‘rganaman. Maqsadim — odamlar va bizneslar uchun haqiqatan foydali, tez ishlaydigan va ko‘zni quvontiradigan mahsulotlar yaratish. Ishlashda aniqlik, muddatga rioya qilish va mijoz bilan doimiy aloqani eng muhim deb bilaman.",edu:"Backend dasturlash o‘qishi",eduTxt:"Backend asoslari, ma’lumotlar bazasi va API ustida o‘qish.",exp:"Shaxsiy loyihalar",expTxt:"Telegram botlar va veb-saytlar yaratdim.",empty:"Hozircha loyiha yo‘q.",open:"Ochish →"},
+ru:{home:"Главная",about:"Обо мне",resume:"Резюме",bots:"Боты",sites:"Сайты",contact:"Контакты",hi:"// Привет, я",role:"Создаю современных ботов и сайты на Python, HTML, CSS и JavaScript.",viewWork:"Мои работы",contactMe:"Связаться",status:"учусь и создаю…",learn:"Год опыта",aboutTxt:"Я Абдурахимов Ойбек Дилмурод угли. Изучаю backend и создаю современных ботов и сайты на Python, HTML, CSS и JavaScript.",aboutTxt2:"Я начал программировать из личного интереса и каждый день узнаю что-то новое. Моя цель — создавать продукты, которые действительно полезны людям и бизнесу, работают быстро и радуют глаз. В работе для меня важнее всего точность, соблюдение сроков и постоянная связь с клиентом.",edu:"Обучение backend-разработке",eduTxt:"Изучаю основы backend, базы данных и API.",exp:"Личные проекты",expTxt:"Создал Telegram-ботов и веб-сайты.",empty:"Проектов пока нет.",open:"Открыть →"},
+en:{home:"Home",about:"About",resume:"Resume",bots:"Bots",sites:"Websites",contact:"Contact",hi:"// Hello, I’m",role:"I build modern bots and websites with Python, HTML, CSS and JavaScript.",viewWork:"My work",contactMe:"Contact me",status:"learning and building…",learn:"Year of experience",aboutTxt:"I’m Abduraximov Oybek Dilmurod o‘g‘li. I study backend and build modern bots and websites with Python, HTML, CSS and JavaScript.",aboutTxt2:"I started programming out of personal interest and learn something new every day. My goal is to create products that are truly useful for people and businesses, fast, and a pleasure to look at. In my work, I value precision, meeting deadlines and constant communication with the client most.",edu:"Backend development studies",eduTxt:"Studying backend basics, databases and APIs.",exp:"Personal projects",expTxt:"Built Telegram bots and websites.",empty:"No projects yet.",open:"Open →"}};
+const SK=["Python","HTML","CSS","JavaScript","Telegram Bots","Backend","Git"];
+const secs=["home","about","resume","bots","sites","contact"];
+let L="uz",P=[],db=null,canEdit=false;
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+function sv(k,v){try{localStorage.setItem(k,v)}catch(e){}}function ld(k){try{return localStorage.getItem(k)}catch(e){return null}}
+function go(id){$$("section").forEach(s=>s.classList.toggle("on",s.id===id));$$("#nav button").forEach(b=>b.classList.toggle("on",b.dataset.s===id));scrollTo(0,0)}
+function esc(s){const d=document.createElement("div");d.textContent=s;return d.innerHTML}
+function render(){
+ const t=T[L];document.documentElement.lang=L;
+ $$("[data-i]").forEach(e=>e.textContent=t[e.dataset.i]);
+ const ids=canEdit?secs.concat("admin"):secs;
+ $("#nav").innerHTML=ids.map(s=>`<button data-s="${s}">${s==="admin"?"Admin":t[s]}</button>`).join("");
+ $$("#nav button").forEach(b=>b.onclick=()=>go(b.dataset.s));
+ const cur=$("section.on");go(cur?cur.id:"home");
+ $$(".ctl [data-l]").forEach(b=>b.classList.toggle("on",b.dataset.l===L));
+ $("#skills").innerHTML=SK.map(s=>`<span>${s}</span>`).join("");
+ const bots=P.filter(p=>p.type==="bot"),sites=P.filter(p=>p.type==="site");
+ $("#nb").textContent=bots.length;$("#ns").textContent=sites.length;
+ const cards=a=>a.length?a.map(p=>`<div class="card"><h3>${esc(p.title)}</h3><p>${esc(p.desc||"")}</p>${p.url?`<a href="${esc(p.url)}" target="_blank" rel="noopener">${t.open}</a>`:""}</div>`).join(""):`<div class="empty" style="grid-column:1/-1">${t.empty}</div>`;
+ $("#gbots").innerHTML=cards(bots);$("#gsites").innerHTML=cards(sites);
+ $("#alist").innerHTML=P.map(p=>`<div class="row"><span>${p.type==="bot"?"🤖":"🌐"} ${esc(p.title)}</span><button class="del" data-id="${p.id}">✕</button></div>`).join("");
+ $$(".del").forEach(b=>b.onclick=async()=>{try{await db.collection("projects").doc(b.dataset.id).delete()}catch(e){alert("Error")}});
+}
+$$(".ctl [data-l]").forEach(b=>b.onclick=()=>{L=b.dataset.l;sv("lang",L);render()});
+$("#th").onclick=()=>{const r=document.documentElement,dark=getComputedStyle(r).colorScheme==="dark";const n=dark?"light":"dark";r.dataset.theme=n;sv("theme",n)};
+$("#add").onclick=async()=>{const title=$("#fti").value.trim();if(!title||!db)return;
+ try{await db.collection("projects").doc("p"+Date.now()).set({type:$("#ft").value,title,desc:$("#fd").value.trim(),url:$("#fu").value.trim(),ts:Date.now()});$("#fti").value=$("#fd").value=$("#fu").value=""}catch(e){alert("Error")}};
+const sl=ld("lang");if(sl&&T[sl])L=sl;
+const st=ld("theme");if(st)document.documentElement.dataset.theme=st;else document.documentElement.dataset.theme="dark";
+render();
+const SEED=[{id:"p1",type:"bot",title:"Savol_javob_bot",desc:"Python · GitHub",url:"https://github.com/AbduraximovOybek/Savol_javob_bot",ts:1004},{id:"p2",type:"bot",title:"Usta_bot",desc:"Python · GitHub",url:"https://github.com/AbduraximovOybek/Usta_bot",ts:1003},{id:"p3",type:"bot",title:"dastavka_bot",desc:"Python · GitHub",url:"https://github.com/AbduraximovOybek/dastavka_bot",ts:1002},{id:"p4",type:"site",title:"mysite",desc:"JavaScript · GitHub",url:"https://github.com/AbduraximovOybek/mysite",ts:1001}];
+try{const r=ld("proj");P=r?JSON.parse(r):SEED}catch(e){P=SEED}
+canEdit=ld("adm")==="1";
+function save(){P.sort((x,y)=>y.ts-x.ts);sv("proj",JSON.stringify(P));render()}
+db={collection:()=>({doc:id=>({set:async d=>{P.push({id,...d});save()},delete:async()=>{P=P.filter(p=>p.id!==id);save()}})})};
+let clicks=0;$(".logo").onclick=()=>{if(++clicks>=5){clicks=0;if(canEdit){sv("adm","0");canEdit=false}else if(prompt("Admin parol / Password")==="admin123"){sv("adm","1");canEdit=true}render()}};
+render();
+</script>
+</body>
+</html>
